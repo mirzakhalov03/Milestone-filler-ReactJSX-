@@ -2,7 +2,7 @@ import { useState } from 'react'
 import './app.scss'
 
 function App() {
-  const steps = ["One", "Two", "Three", "Four", "Done!"];
+  const level = ["One", "Two", "Three", "Four", "Done!"];
   const [count, setCount] = useState(0);
 
   const moveBack = () => {
@@ -12,7 +12,7 @@ function App() {
   }
 
   const moveOn = () => {
-    if (count < steps.length - 1) {
+    if (count < level.length - 1) {
       setCount(count + 1);
     }
   }
@@ -22,12 +22,12 @@ function App() {
       <div className="hero">
         <div className="wrapper">
           <div className="main">
-            {steps.map((step, index) => (
+            {level.map((step, index) => (
               <div key={index} className={`step-container`}>
                 <div className={`stone ${index <= count ? 'full' : ''}`}>
                   {step}
                 </div>
-                {index < steps.length - 1 && (
+                {index < level.length - 1 && (
                   <div className={`line ${index < count ? 'line-full' : ''}`}></div>
                 )}
               </div>
@@ -46,7 +46,7 @@ function App() {
             </button>
           </div>
           <div className="result">
-            Current Step: {steps[count]}
+            Current Step: {level[count]}
           </div>
         </div>
       </div>
